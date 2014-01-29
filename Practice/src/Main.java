@@ -6,56 +6,43 @@ public class Main {
 		
 		Foo ernie = new Foo();
 		Foo2 bert = new Foo2();
-		Attack hack = new Attack();
-	
-		int limit = 10;
+		Attack attack = new Attack();
+		Results results = new Results();
+		
 		int rounds = 0;
+		String player1 = "ernie";
+		String player2 = "bert";
 			
-		int erniehp = ernie.hp;
-		int berthp  = bert.hp;
+		int p1hp = ernie.hp;
+		int p2hp  = bert.hp;
 	
-		while((erniehp  > 0) && (berthp > 0) )
+		while((p1hp  > 0) && (p2hp > 0) )
 		{
-			int oldberthp;
-			int olderniehp;
+			int oldp2hp;
+			int oldp1hp;
 			
 			System.out.println("Round Number:" + (rounds += 1));
 			
-			oldberthp = berthp;
-			olderniehp = erniehp;
+			oldp2hp = p2hp;
+			oldp1hp = p1hp;
 			
-			berthp = berthp -= hack.hack();
-			erniehp = erniehp -= hack.hack();
+			p2hp = p2hp -= attack.hack();
+			p1hp = p1hp -= attack.hack();
 			
-			while(berthp < 0)
+			while(p2hp < 0)
 			{
-				berthp = oldberthp;
-				berthp = berthp -= hack.hack();
+				p2hp = oldp2hp;
+				p2hp = p2hp -= attack.hack();
 			}
-			while(erniehp < 0)
+			while(p1hp < 0)
 			{
-				erniehp = olderniehp;
-				erniehp = erniehp -= hack.hack();
+				p1hp = oldp1hp;
+				p1hp = p1hp -= attack.hack();
 			}
-
-			System.out.println("Heath of ernie: " + erniehp);
-			System.out.println("Heath of bert: " + berthp);	
 		
-			if (erniehp > berthp)
-				System.out.println("ernie wins");
-			else
-				System.out.println("bert wins");
-			
-			if(erniehp <= 0)
-			{
-				System.out.println("Ernie is dead");
-				break;
-			}
-			if(berthp <= 0)
-			{
-				System.out.println("Bert is dead");
-				break;
-			}
+			results.health(player1, p1hp, player2, p2hp);
+			results.winner(player1,p1hp,player2,p2hp);
+			results.dead(player1,p1hp,player2,p2hp);
 			
 			System.out.println("");	
 		}
