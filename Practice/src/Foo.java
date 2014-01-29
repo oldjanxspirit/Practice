@@ -1,7 +1,6 @@
 
 public class Foo {
-	public void speak()	
-	{System.out.println("hello world");}
+	//Ernie
+	int hp = 50;
 	
-	public void 
 }
