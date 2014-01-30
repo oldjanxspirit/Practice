@@ -1,7 +1,7 @@
 
 public class Foo2 {
 	//Bert
-	int hp = 50;
+	int hp = 150;
 
 }
 

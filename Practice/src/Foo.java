@@ -1,6 +1,6 @@
 
 public class Foo {
 	//Ernie
-	int hp = 50;
+	int hp = 150;
 	
 }
